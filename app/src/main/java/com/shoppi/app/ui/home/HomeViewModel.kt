@@ -13,7 +13,7 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     val title : LiveData<Title> = _title
 
     private val _topBanners = MutableLiveData<List<Banner>>()
-    val topBanner: LiveData<List<Banner>> = _topBanners
+    val topBanners: LiveData<List<Banner>> = _topBanners
 
     init {
         loadHomeData()
