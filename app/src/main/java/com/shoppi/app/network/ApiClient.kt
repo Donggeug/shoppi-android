@@ -1,6 +1,7 @@
 package com.shoppi.app.network
 
 import com.shoppi.app.model.Category
+import com.shoppi.app.model.CategoryDetail
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -10,6 +11,9 @@ import retrofit2.http.GET
 interface ApiClient {
     @GET("categories.json ")
     suspend fun getCategories():List<Category>
+
+    @GET("fashion_female.json")
+    suspend fun getCategoryDetail():CategoryDetail
 
     companion object {
 
