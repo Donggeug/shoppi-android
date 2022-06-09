@@ -17,4 +17,8 @@
     <string name="description_product_thumbnail">상품 상세 대표 이미지</string>
     <string name="description_product_detail_image">상품 상세 이미지</string>
     <string name="label_category_new">NEW</string>
+    <!--  Product Detail  -->
+    <string name="label_product_price_description">쿠폰 적용가</string>
+    <string name="label_add_cart">장바구니 담기</string>
+
 </resources>
