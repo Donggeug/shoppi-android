@@ -1,24 +1,15 @@
 package com.shoppi.app.ui.home
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.shoppi.app.model.Banner
-import com.shoppi.app.GlideApp
-import com.shoppi.app.R
 import com.shoppi.app.databinding.ItemHomeBannerBinding
-import java.text.DecimalFormat
-import kotlin.math.roundToInt
+import com.shoppi.app.model.Banner
 
-
-class HomeBannerAdapter : ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(
+class HomeBannerAdapter(private val viewModel: HomeViewModel) : ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(
     BannerDiffCallback()
 ){
     private lateinit var binding : ItemHomeBannerBinding
@@ -31,11 +22,12 @@ class HomeBannerAdapter : ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHo
         holder.bind(getItem(position))
     }
 
-    class HomeBannerViewHolder(private val binding: ItemHomeBannerBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class HomeBannerViewHolder(private val binding: ItemHomeBannerBinding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(banner: Banner){
-         binding.banner = banner
-         binding.executePendingBindings()
+            binding.viewModel = viewModel
+            binding.banner = banner
+            binding.executePendingBindings()
         }
     }
 }
